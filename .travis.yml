@@ -8,4 +8,4 @@ services:
 install:
   - pipenv install
 script: 
-  - python manage.py test
+  - python executivetable_restserver/manage.py test
