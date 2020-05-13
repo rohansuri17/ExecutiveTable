@@ -7,5 +7,6 @@ services:
   - postgresql
 install:
   - pipenv install
+  - pip install psycopg
 script: 
   - python executivetable_restserver/manage.py test
