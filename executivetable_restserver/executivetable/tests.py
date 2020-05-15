@@ -5,8 +5,11 @@ from django.urls import reverse
 from rest_framework.test import APITestCase, APIClient
 from rest_framework.views import status
 from .models import Users
+from .models import UserProfile
+from .models import Startup
 from .serializers import UsersSerializer
-
+from .serializers import UserProfileSerializer
+from .serializers import StartupSerializer
 # tests for views
 
 
@@ -14,9 +17,9 @@ class BaseViewTest(APITestCase):
     client = APIClient()
 
     @staticmethod
-    def create_user(name = "", email = ""):
-        if name != "" and email != "":
-            Users.objects.create(name = name, email = email)
+    def create_user(first_name = "", last_name = "", email = "",password=""):
+        if first_name != "" and last_name !="" and email != "" and password !="":
+            Users.objects.create(first_name = first_name, last_name = last_name, email = email,password=password)
 
     def setUp(self):
         # add test data
@@ -24,9 +27,9 @@ class BaseViewTest(APITestCase):
         self.create_user("Rohan Suri", "rohansuri17@gmail.com")
 
 
-class GetAllSongsTest(BaseViewTest):
+class GetAllDataTest(BaseViewTest):
 
-    def test_get_all_songs(self):
+    def test_get_all_users(self):
         """
         This test ensures that all songs added in the setUp method
         exist when we make a GET request to the Users/ endpoint
@@ -40,3 +43,38 @@ class GetAllSongsTest(BaseViewTest):
         serialized = UsersSerializer(expected, many=True)
         self.assertEqual(response.data, serialized.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_get_all_userprofiles(self):
+        """
+        This test ensures that all songs added in the setUp method
+        exist when we make a GET request to the Users/ endpoint
+        """
+        # hit the API endpoint
+        response = self.client.get(
+            reverse("userprofiles-all", kwargs={"version": "v1"})
+        )
+        # fetch the data from db
+        expected = UserProfile.objects.all()
+        serialized = UserProfileSerializer(expected, many=True)
+        self.assertEqual(response.data, serialized.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_get_all_startups(self):
+        """
+        This test ensures that all songs added in the setUp method
+        exist when we make a GET request to the Users/ endpoint
+        """
+        # hit the API endpoint
+        response = self.client.get(
+            reverse("startup-all", kwargs={"version": "v1"})
+        )
+        # fetch the data from db
+        expected = Startup.objects.all()
+        serialized = StartupSerializer(expected, many=True)
+        self.assertEqual(response.data, serialized.data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+
+
+
+

@@ -3,11 +3,11 @@ python:
   - 3.7.5
 env:
   - SECRET_KEY = 'TEST'
-services:
-  - postgresql
 install:
   - pipenv install
   - pip3 install -r requirements.txt
   - pip3 install psycopg2-binary
+services:
+  - postgresql
 script: 
   - python executivetable_restserver/manage.py test
