@@ -6,7 +6,7 @@ First, you want to cd into the directory your local files are and perform a 'git
 Next, you want to create a virtual environment in the current directory. Virtual environments are used to create an isolated environment for our server to run. Note that each time you quit out of your command line you will need to follow this entire process again from the beginning.
   
   
-  The following commands are used to create a virtual enviroment: 
+  ### The following commands are used to create a virtual enviroment: 
 
   'pip install virtualenv' if you have not installed on your machine already
 
