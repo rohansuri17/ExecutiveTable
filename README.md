@@ -1,11 +1,11 @@
 # ExecutiveTable
 Repository for The Executive Table LLC
 
-# This Readme will guide you on how to get your Django server up and running to make changes/modify the backend REST API
+## This Readme will guide you on how to get your Django server up and running to make changes/modify the backend REST API
 
-First, you want to cd into the directory your local files are and perform a 'git pull' to make sure you have the relevant changes from the master branch.
+1. First, you want to cd into the directory your local files are and perform a 'git pull' to make sure you have the relevant changes from the master branch.
 
-Next, you want to create a virtual environment in the current directory. Virtual environments are used to create an isolated environment for our server to run. Note that each time you quit out of your command line you will need to follow this entire process again from the beginning.
+2. Next, you want to create a virtual environment in the current directory. Virtual environments are used to create an isolated environment for our server to run. Note that each time you quit out of your command line you will need to follow this entire process again from the beginning.
 
 The following commands are used to create a virtual enviroment: 
 
