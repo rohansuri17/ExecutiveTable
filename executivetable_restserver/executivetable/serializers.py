@@ -1,11 +1,9 @@
 from rest_framework import serializers
-from .models import Users
-from .models import UserProfile
-from .models import Startup
+from .models import *
 #from .models import StartupRoles
 class UsersSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Users
+        model = User
         fields = ("First Name", "Last Name", "Email", "Password", "ProfileID", "StartupID")
 
 

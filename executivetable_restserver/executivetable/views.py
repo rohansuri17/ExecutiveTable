@@ -1,7 +1,5 @@
 from rest_framework import generics
-from .models import Users
-from .models import UserProfile
-from .models import Startup
+from .models import *
 #from .models import StartupRoles
 from .serializers import UsersSerializer
 from .serializers import UserProfileSerializer
@@ -13,7 +11,7 @@ class ListUsersView(generics.ListAPIView):
     """
     Provides a get method handler.
     """
-    queryset = Users.objects.all()
+    queryset = User.objects.all()
     serializer_class = UsersSerializer
 
 class ListUserProfileView(generics.ListAPIView):
