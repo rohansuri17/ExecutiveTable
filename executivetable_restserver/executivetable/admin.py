@@ -11,5 +11,5 @@ admin.site.register(Education)
 admin.site.register(WorkExperience)
 admin.site.register(Connection)
 admin.site.register(PrivateMessage)
-admin.site.register(UserMessageBoard)
 admin.site.register(MessageBoard)
+

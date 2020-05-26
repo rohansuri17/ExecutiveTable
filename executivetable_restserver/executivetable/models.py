@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 #models
 
@@ -8,11 +9,6 @@ class Startup(models.Model):
 
     def __str__(self):
     	return self.name
-
-    class Meta:
-        indexes = [
-           models.Index(fields=['id',]),
-        ]
 
 
 class StartupProfile(models.Model):
@@ -24,11 +20,6 @@ class StartupProfile(models.Model):
     def __str__(self):
         return self.description
 
-    class Meta:
-        indexes = [
-           models.Index(fields=['id',]),
-           models.Index(fields=['startup_id',]),
-        ]
 
 
 class User(models.Model):
@@ -39,20 +30,12 @@ class User(models.Model):
 
     email = models.EmailField(max_length = 255, unique = True)
 
-    password_digest = models.CharField(max_length = 255)
+    password = models.CharField(max_length = 255)
 
-    startup_id = models.ForeignKey(Startup, null = True, on_delete = models.SET_NULL)
+    startup_id = models.ForeignKey(Startup, blank = True, null = True, on_delete = models.SET_NULL)
 
     def __str__(self):
-        return "{} {}".format(self.first_name, self.last_name)
-    
-    class Meta:
-        indexes = [
-           models.Index(fields=['id',]),
-           models.Index(fields=['last_name', 'first_name',]),
-           models.Index(fields=['startup_id',]),
-           models.Index(fields=['startup_role_id',]),
-        ]
+        return "{} {}".format(self.first_name, self.last_name) 
 
 
 class UserProfile(models.Model):
@@ -64,11 +47,7 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.description
 
-    class Meta:
-        indexes = [
-           models.Index(fields=['id',]),
-           models.Index(fields=['user_id',]),
-        ]
+
 
 
 class StartupRole(models.Model):
@@ -83,12 +62,6 @@ class StartupRole(models.Model):
     
     def __str__(self):
         return self.title
-
-    class Meta:
-        indexes = [
-           models.Index(fields=['id',]),
-           models.Index(fields=['user_id',]),
-        ]
 
 
 class Education(models.Model):
@@ -108,11 +81,6 @@ class Education(models.Model):
     def __str__(self):
         return "{} in {}\n{}".format(self.education_level, self.major, self.institution)
 
-    class Meta:
-        indexes = [
-           models.Index(fields=['id',]),
-           models.Index(fields=['user_profile_id',]),
-        ]
 
 
 class WorkExperience(models.Model):
@@ -132,11 +100,6 @@ class WorkExperience(models.Model):
     def __str__(self):
         return "{} - {}".format(self.title, self.company)
 
-    class Meta:
-        indexes = [
-           models.Index(fields=['id',]),
-           models.Index(fields=['user_profile_id',]),
-        ]
 
 
 class Connection(models.Model):
@@ -149,38 +112,24 @@ class Connection(models.Model):
 
     action_user_id = models.ForeignKey(User, on_delete = models.CASCADE, related_name = "action_user_id")
 
-    class Meta:
-        indexes = [
-           models.Index(fields=['id',]),
-           models.Index(fields=['user1_id',]),
-           models.Index(fields=['user2_id',]),
-        ]
 
 
 class PrivateMessage(models.Model):
 
     message = models.TextField()
 
-    connection_id = models.ForeignKey(Connection, null = True, on_delete = models.CASCADE)
+    connection_id = models.ForeignKey(Connection, blank = True, null = True, on_delete = models.CASCADE)
 
-    user_sender_id = models.ForeignKey(User, null = True, on_delete = models.CASCADE, related_name = "user_sender_id")
+    user_sender_id = models.ForeignKey(User, blank = True, null = True, on_delete = models.CASCADE, related_name = "user_sender_id")
 
-    user_receiver_id = models.ForeignKey(User, null = True, on_delete = models.CASCADE, related_name = "user_receiver_id")
+    user_receiver_id = models.ForeignKey(User, blank = True, null = True, on_delete = models.CASCADE, related_name = "user_receiver_id")
 
-    startup_sender_id = models.ForeignKey(Startup, null = True, on_delete = models.CASCADE, related_name = "startup_sender_id")
+    startup_sender_id = models.ForeignKey(Startup, blank = True, null = True, on_delete = models.CASCADE, related_name = "startup_sender_id")
 
-    startup_receiver_id = models.ForeignKey(Startup, null = True, on_delete = models.CASCADE, related_name = "startup_receiver_id")
+    startup_receiver_id = models.ForeignKey(Startup, blank = True, null = True, on_delete = models.CASCADE, related_name = "startup_receiver_id")
 
     def __str__(self):
 	    return self.message
-
-    class Meta:
-        indexes = [
-           models.Index(fields=['id',]),
-           models.Index(fields=['connection_id',]),
-           models.Index(fields=['sender_id',]),
-           models.Index(fields=['receiver_id',]),
-        ]
 
 
 class MessageBoard(models.Model):
@@ -191,8 +140,3 @@ class MessageBoard(models.Model):
 
     def __str__(self):
 	    return self.name
-
-    class Meta:
-        indexes = [
-           models.Index(fields=['id',]),
-        ]
