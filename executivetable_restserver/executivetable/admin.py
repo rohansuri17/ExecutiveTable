@@ -1,11 +1,15 @@
 from django.contrib import admin
-from .models import Users
-from .models import UserProfile
-from .models import Startup
-#from .models import StartupRoles
+from .models import *
 # Register your models here.
 
-admin.site.register(Users)
-admin.site.register(UserProfile)
 admin.site.register(Startup)
-#admin.site.register(StartupRoles)
+admin.site.register(StartupProfile)
+admin.site.register(StartupRole)
+admin.site.register(User)
+admin.site.register(UserProfile)
+admin.site.register(Education)
+admin.site.register(WorkExperience)
+admin.site.register(Connection)
+admin.site.register(PrivateMessage)
+admin.site.register(MessageBoard)
+
