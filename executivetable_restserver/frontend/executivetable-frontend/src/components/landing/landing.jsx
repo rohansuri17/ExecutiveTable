@@ -9,7 +9,7 @@ class Landing extends React.Component {
         <div className="landing-header__text-form__container">
           <div className="landing-header__text-container">
             <h1>
-              Pharetra sit. <br /> In aliquam.
+              Pharetra in sit. <br /> In aliquam.
             </h1>
             <h5>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -18,7 +18,8 @@ class Landing extends React.Component {
             <p>Elit at, imperdiet dui accumsan sit</p>
           </div>
           <form className="landing-header__form-container">
-            <h1>Get More Information</h1>
+            <div className="landing-header__form-top-border-line"></div>
+            <h1>Get more information</h1>
             <div className="landing-header__form-name-container">
               <input type="text" placeholder="First Name" />
               <input type="text" placeholder="Last Name" />

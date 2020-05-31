@@ -18,6 +18,83 @@ div.landing-outer__container {
   div.landing-header__text-form__container {
     display: flex;
     justify-content: space-between;
+    padding: 3vh 6vw;
+
+    div.landing-header__text-container {
+      color: white;
+      font-family: $Cabin;
+      width: 42%;
+
+      h1 {
+        font-size: 2.5rem;
+        letter-spacing: 0.1rem;
+      }
+
+      h5 {
+        padding: 4vh 0;
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: #99a3e8;
+      }
+    }
+
+    form.landing-header__form-container {
+      background-color: white;
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+
+      border: 1px solid green; // TEST
+
+      div.landing-header__form-top-border-line {
+        height: 2%;
+        background: #70d5e6;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 1.3rem;
+        font-family: $Cabin;
+        padding: 1.5rem 1rem 0.7rem 1rem;
+      }
+
+      div.landing-header__form-name-container {
+        display: flex;
+        justify-content: center;
+
+        input {
+          height: 2rem;
+          border: 1px solid #d2cece;
+          border-radius: 2px;
+          padding-left: 0.9rem;
+          font-size: 0.9rem;
+          width:32%;
+          margin: 0.4rem;
+        }
+      }
+
+      input {
+        margin: auto;
+        margin-top: 0.4rem;
+        display: block;
+        border: 1px solid #d2cece;
+        border-radius: 2px;
+        height: 2rem;
+        font-size: 0.9rem;
+        width: 72.5%;
+        padding-left: 0.9rem;
+      }
+
+      button {
+        background-color: red;
+        width: 77%;
+        margin: auto;
+        height: 2rem;
+      }
+    }
   }
 }
 
