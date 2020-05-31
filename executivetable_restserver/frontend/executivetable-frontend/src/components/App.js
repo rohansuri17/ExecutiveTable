@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from 'react-router-dom';
 
 import Landing from './landing/landing.jsx';
-import resetCSS from '../stylesheets/reset.css';
+import '../stylesheets/base/reset.scss';
 
 class App extends React.Component {
   render() {
