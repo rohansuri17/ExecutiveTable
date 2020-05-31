@@ -40,17 +40,43 @@ class Landing extends React.Component {
             </svg>
           </div>
         </div>
-
         <div className="landing-info__container">
           <div className="landing-info__text-container">
-            <h2>Velit sed ullamcorper morbi tincidunt ornare massa</h2>
+            <h2>Velit Sed Ullamcorper morbi Tincidunt ornare Massa</h2>
             <p>
               Vulputate mi sit, amet mauris commodo quis imperdiet massa
               tincidunt nunc pulvinar sapien et ligula ullamcorper.
             </p>
           </div>
+
+          <div className="landing-info__outer-box-container">
+            <div className="landing-info__box-container">
+              <img src="https://img.icons8.com/fluent/48/000000/link.png" />
+              <h5>Sit amet porttitor consectetur</h5>
+              <p>
+                Gravida in fermentum et sollicitudin ac orci phasellus egestas
+                tellus, rutrum, tellus pellentesque.
+              </p>
+            </div>
+            <div className="landing-info__box-container">
+              <img src="https://img.icons8.com/cute-clipart/64/000000/globe.png" />
+              <h5>Proin libero</h5>
+              <p>
+                At urna condimentum mattis pellentesque id nibh, tortor id
+                aliquet, proin nibh nisl, condimentum id scelerisque.
+              </p>
+            </div>
+            <div className="landing-info__box-container">
+              <img src="https://img.icons8.com/cotton/64/000000/business-group.png" />
+              <h5>Scelerisque integer nunc</h5>
+              <p>
+                Blandit aliquam etiam erat velit scelerisque in dictum non
+                consectetur a erat lectus condimentum pellentesque.
+              </p>
+            </div>
+          </div>
+          <button>Contact Us Now</button>
         </div>
-        
       </div>
     );
   }
