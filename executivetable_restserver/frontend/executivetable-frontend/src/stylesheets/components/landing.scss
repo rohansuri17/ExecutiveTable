@@ -1,0 +1,135 @@
+@import "../base/fonts";
+
+div.landing-outer__container {
+  background-color: #333333;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23264add'/%3E%3Cstop offset='1' stop-color='%23333333'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%2330c4ff' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%2330c4ff' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: cover;
+  position: relative;
+
+  height: 600px; /* TEST */
+  background-position-y: 600px;
+
+  > h1 {
+    font-family: $Varela;
+    color: white;
+    font-size: 1.8rem;
+    padding: 1.5rem 8vw;
+  }
+
+  div.landing-header__text-form__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 3vh 8vw;
+
+    div.landing-header__text-container {
+      color: white;
+      font-family: $Cabin;
+      width: 42%;
+      z-index: 1;
+
+      h1 {
+        font-size: 2.5rem;
+        letter-spacing: 0.1rem;
+      }
+
+      h5 {
+        padding: 4vh 0;
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: #99a3e8;
+      }
+    }
+
+    form.landing-header__form-container {
+      background-color: white;
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      min-height: 15rem;
+      max-width: 23rem;
+      padding-bottom: 2rem;
+      justify-content: space-between;
+      margin-right: 5vw;
+      z-index: 1;
+
+      div.landing-header__form-top-border-line {
+        height: 2%;
+        background: #70d5e6;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 1.3rem;
+        font-family: $Cabin;
+        padding: 1.5rem 1rem 1rem 1rem;
+      }
+
+      div.landing-header__form-name-container {
+        display: flex;
+        justify-content: center;
+
+        input {
+          height: 2rem;
+          border: 1px solid #d2cece;
+          border-radius: 2px;
+          padding-left: 0.9rem;
+          font-size: 0.9rem;
+          width:32%;
+          margin: 0.4rem;
+        }
+      }
+
+      input {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0.7rem;
+        margin-bottom: 1.5rem;
+        display: block;
+        border: 1px solid #d2cece;
+        border-radius: 2px;
+        height: 2rem;
+        font-size: 0.9rem;
+        width: 72.5%;
+        padding-left: 0.9rem;
+      }
+
+      button {
+        background-color: #706ad4;
+        width: 68%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 2.5rem;
+        border-radius: 20px;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        font-weight: 500;
+        transition: background-color 0.2s;
+      }
+
+      button:hover {
+        background-color: #807ae6;
+      }
+    }
+  }
+
+  svg {
+    position: absolute;
+    width: 100%;
+    height: 100vw;
+    bottom: -13rem;
+    overflow: hidden;
+    transform: scaleY(-1);
+  }
+}
+
+@media only screen and (max-width: 1480px) { // TEMP Media query for curved shape header
+  div.landing-outer__container {
+    svg {
+      bottom: -8rem;
+    }
+  }
+}
