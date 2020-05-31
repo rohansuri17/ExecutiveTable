@@ -25,7 +25,7 @@ class Landing extends React.Component {
               <input type="text" placeholder="Last Name" />
             </div>
             <input type="email" placeholder="Email Address" />
-            <button value="Send" />
+            <button>Send</button>
           </form>
         </div>
       </div>

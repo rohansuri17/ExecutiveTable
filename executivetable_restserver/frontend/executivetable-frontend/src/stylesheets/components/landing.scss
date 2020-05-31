@@ -12,13 +12,13 @@ div.landing-outer__container {
     font-family: $Varela;
     color: white;
     font-size: 1.8rem;
-    padding: 1.5rem 6vw;
+    padding: 1.5rem 8vw;
   }
 
   div.landing-header__text-form__container {
     display: flex;
     justify-content: space-between;
-    padding: 3vh 6vw;
+    padding: 3vh 8vw;
 
     div.landing-header__text-container {
       color: white;
@@ -46,8 +46,11 @@ div.landing-outer__container {
       width: 30%;
       display: flex;
       flex-direction: column;
-
-      border: 1px solid green; // TEST
+      min-height: 15rem;
+      max-width: 23rem;
+      padding-bottom: 1.2rem;
+      justify-content: space-between;
+      margin-right: 5vw;
 
       div.landing-header__form-top-border-line {
         height: 2%;
@@ -58,7 +61,7 @@ div.landing-outer__container {
         text-align: center;
         font-size: 1.3rem;
         font-family: $Cabin;
-        padding: 1.5rem 1rem 0.7rem 1rem;
+        padding: 1.5rem 1rem 1rem 1rem;
       }
 
       div.landing-header__form-name-container {
@@ -77,8 +80,10 @@ div.landing-outer__container {
       }
 
       input {
-        margin: auto;
-        margin-top: 0.4rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0.7rem;
+        margin-bottom: 1.5rem;
         display: block;
         border: 1px solid #d2cece;
         border-radius: 2px;
@@ -89,10 +94,16 @@ div.landing-outer__container {
       }
 
       button {
-        background-color: red;
-        width: 77%;
-        margin: auto;
-        height: 2rem;
+        background-color: #706ad4;
+        width: 68%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 2.5rem;
+        border-radius: 20px;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        font-weight: 500;
       }
     }
   }
