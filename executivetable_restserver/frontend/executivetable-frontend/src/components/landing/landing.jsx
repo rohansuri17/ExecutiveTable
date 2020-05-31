@@ -1,8 +1,13 @@
 import React from "react";
+import landingCSS from '../../stylesheets/landing.css'
 
 class Landing extends React.Component {
   render() {
-    return <h1>This is the landing page</h1>
+    return (
+      <div>
+        <h1>Executive Table</h1>
+      </div>
+    )
   }
 }
 

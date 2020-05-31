@@ -1,7 +1,8 @@
 import React from "react";
 import { Switch, Route } from 'react-router-dom';
 
-import Landing from './landing/landing.jsx'
+import Landing from './landing/landing.jsx';
+import resetCSS from '../stylesheets/reset.css';
 
 class App extends React.Component {
   render() {
