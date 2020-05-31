@@ -1,6 +1,27 @@
 import React from "react";
 import '../../stylesheets/components/landing.scss';
 class Landing extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstName: "",
+      lastName: "",
+      email: "",
+    };
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const user = Object.assign({}, this.state);
+  }
+
+  update(field) {
+    return (e) =>
+      this.setState({
+        [field]: e.currentTarget.value,
+      });
+  }
+
   render() {
     return (
       <div className="landing-outer__container">
@@ -21,11 +42,26 @@ class Landing extends React.Component {
               <div className="landing-header__form-top-border-line"></div>
               <h1>Get more information</h1>
               <div className="landing-header__form-name-container">
-                <input type="text" placeholder="First Name" />
-                <input type="text" placeholder="Last Name" />
+                <input
+                  type="text"
+                  value={this.state.firstName}
+                  onChange={this.update("firstName")}
+                  placeholder={"First Name"}
+                />
+                <input
+                  type="text"
+                  value={this.state.lastName}
+                  onChange={this.update("lastName")}
+                  placeholder={"Last Name"}
+                />
               </div>
-              <input type="email" placeholder="Email Address" />
-              <button>Send</button>
+              <input
+                type="email"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder={"Email Address"}
+              />
+              <button type="submit">Send</button>
             </form>
           </div>
           <div className="container">
