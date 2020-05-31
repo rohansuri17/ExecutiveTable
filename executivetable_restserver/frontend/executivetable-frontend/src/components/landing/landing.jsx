@@ -1,6 +1,5 @@
 import React from "react";
 import '../../stylesheets/components/landing.scss';
-
 class Landing extends React.Component {
   render() {
     return (
@@ -27,6 +26,20 @@ class Landing extends React.Component {
             <input type="email" placeholder="Email Address" />
             <button>Send</button>
           </form>
+        </div>
+        <div className="container">
+          <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 500 500">
+            <defs>
+              <linearGradient id="Gradient1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stopColor="#5ae7bd"></stop>
+                <stop offset="100%" stopColor="#2cd5ce"></stop>
+              </linearGradient>
+            </defs>
+            <path
+              fill="white"
+              d="M0 90c150-65 350 60 500-10V0H0z"
+            ></path>
+          </svg>
         </div>
       </div>
     );
