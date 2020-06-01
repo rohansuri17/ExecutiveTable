@@ -2,6 +2,12 @@ from django.db import models
 from django import forms
 
 #models
+class InfoUsers(models.Model):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
+    def __str__(self):
+        return "{} {}".format(self.first_name, self.last_name, self.email) 
 
 class Startup(models.Model):
 
@@ -24,13 +30,13 @@ class StartupProfile(models.Model):
 
 class User(models.Model):
 
-    first_name = models.CharField(max_length = 45)
+    first_name = models.CharField(max_length = 45, default ="")
 
-    last_name = models.CharField(max_length = 45)
+    last_name = models.CharField(max_length = 45, default = "")
 
-    email = models.EmailField(max_length = 255, unique = True)
+    email = models.EmailField(max_length = 255, default="")
 
-    password = models.CharField(max_length = 255)
+    password = models.CharField(max_length = 255, default = "")
 
     startup_id = models.ForeignKey(Startup, blank = True, null = True, on_delete = models.SET_NULL)
 

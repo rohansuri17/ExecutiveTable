@@ -12,4 +12,4 @@ admin.site.register(WorkExperience)
 admin.site.register(Connection)
 admin.site.register(PrivateMessage)
 admin.site.register(MessageBoard)
-
+admin.site.register(InfoUsers)

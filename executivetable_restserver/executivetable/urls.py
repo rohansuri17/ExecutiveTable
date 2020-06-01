@@ -10,11 +10,14 @@ from .views import ListWorkExperienceView
 from .views import ListConnectionView
 from .views import ListPrivateMessageView
 from .views import ListMessageBoardView
+#from .views import ListInfoUsersView
+from .views import infousers_list
 #from .views import ListStartupRolesView
 
 urlpatterns = [
     
     path('executivetable/user', ListUsersView.as_view(), name="users-all"),
+    path('executivetable/userinformation', infousers_list, name="usersinfo"),
     path('executivetable/userprofiles-all', ListUserProfileView.as_view(), name="userprofiles-all"),
     path('executivetable/', ListStartupView.as_view(), name="startup-all"),
     path('executivetable/', ListStartupProfileView.as_view(), name="startupprofile-all"),

@@ -85,10 +85,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'executivetable',
-        'USER': 'rohansuri17',
-        'Password': '',
-        'HOST': 'localhost',
-        'PORT': '',
+        #'USER': 'rohansuri17',
+        #'Password': '',
+        #'HOST': 'localhost',
+        #'PORT': '',
     }
 }
 

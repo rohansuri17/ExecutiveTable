@@ -1,7 +1,11 @@
 from rest_framework import generics
 from rest_framework.response import Response
 from .models import *
+from rest_framework import status
 #from .models import StartupRoles
+
+from django.http.response import JsonResponse
+from rest_framework.parsers import JSONParser
 from .serializers import UsersSerializer
 from .serializers import UserProfileSerializer
 from .serializers import StartupSerializer
@@ -12,31 +16,38 @@ from .serializers import WorkExperienceSerializer
 from .serializers import ConnectionSerializer
 from .serializers import PrivateMessageSerializer
 from .serializers import MessageBoardSerializer
+from .serializers import InfoUsersSerializer
 #from .serializers import StartupRolesSerializer
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
+from django.views.decorators.csrf import csrf_exempt
 
-
-class ListUsersView(APIView):
-    """
-    """
-    #queryset = User.objects.all()
-    #serializer_class = UsersSerializer
-    def get(self, request):
-        users = User.objects.all()
-        # the many param informs the serializer that it will be serializing more than a single article.
-        serializer_class = UsersSerializer(users,many=True)
-        return Response(serializer_class.data)
+@csrf_exempt
+@api_view(['GET', 'POST', 'DELETE'])
+def infousers_list(request):
+    if request.method == 'GET':
+        users = InfoUsers.objects.all()
+        serializer = InfoUsersSerializer(users, many=True)
+        return Response(serializer.data)
+        # 'safe=False' for objects serialization
+ 
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = InfoUsersSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=status.HTTP_201_CREATED) 
+        return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    def post(self, request):
+    elif request.method == 'DELETE':
+        count = InfoUsers.objects.all().delete()
+        return JsonResponse({'message': '{} Users were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
+ 
 
-        User = request.data.get('User')
+class ListUsersView(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UsersSerializer
 
-        # Create an article from the above data
-        serializer = UsersSerializer(data=User)
-        if serializer.is_valid(raise_exception=True):
-            user_saved = serializer.save()
-        return Response({"success": "User '{}' created successfully".format(user_saved.first_name)})
-    
 class ListUserProfileView(generics.ListAPIView):
     """
     Provides a get method handler.
