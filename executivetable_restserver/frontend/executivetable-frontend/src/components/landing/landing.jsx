@@ -12,7 +12,7 @@ class Landing extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
+    // const user = Object.assign({}, this.state);
   }
 
   update(field) {
@@ -87,7 +87,7 @@ class Landing extends React.Component {
 
           <div className="landing-info__outer-box-container">
             <div className="landing-info__box-container">
-              <img src="https://img.icons8.com/fluent/48/000000/link.png" />
+              <img src="https://img.icons8.com/fluent/48/000000/link.png" alt="linked-chain" />
               <h5>Sit amet porttitor consectetur</h5>
               <p>
                 Gravida in fermentum et sollicitudin ac orci phasellus egestas
@@ -95,7 +95,7 @@ class Landing extends React.Component {
               </p>
             </div>
             <div className="landing-info__box-container">
-              <img src="https://img.icons8.com/cute-clipart/64/000000/globe.png" />
+              <img src="https://img.icons8.com/cute-clipart/64/000000/globe.png" alt="globe" />
               <h5>Proin libero</h5>
               <p>
                 At urna condimentum mattis pellentesque id nibh, tortor id
@@ -103,7 +103,7 @@ class Landing extends React.Component {
               </p>
             </div>
             <div className="landing-info__box-container">
-              <img src="https://img.icons8.com/cotton/64/000000/business-group.png" />
+              <img src="https://img.icons8.com/cotton/64/000000/business-group.png" alt="group-of-people" />
               <h5>Scelerisque integer nunc</h5>
               <p>
                 Blandit aliquam etiam erat velit scelerisque in dictum non
