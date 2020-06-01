@@ -4,7 +4,7 @@ from django.test import TestCase
 from django.urls import reverse
 from rest_framework.test import APITestCase, APIClient
 from rest_framework.views import status
-from .models import Users
+from .models import User
 from .models import UserProfile
 from .models import Startup
 from .serializers import UsersSerializer
@@ -19,7 +19,7 @@ class BaseViewTest(APITestCase):
     @staticmethod
     def create_user(first_name = "", last_name = "", email = "",password=""):
         if first_name != "" and last_name !="" and email != "" and password !="":
-            Users.objects.create(first_name = first_name, last_name = last_name, email = email,password=password)
+            User.objects.create(first_name = first_name, last_name = last_name, email = email,password=password)
 
     def setUp(self):
         # add test data
@@ -36,10 +36,10 @@ class GetAllDataTest(BaseViewTest):
         """
         # hit the API endpoint
         response = self.client.get(
-            reverse("users-all", kwargs={"version": "v1"})
+            reverse("users-all")
         )
         # fetch the data from db
-        expected = Users.objects.all()
+        expected = User.objects.all()
         serialized = UsersSerializer(expected, many=True)
         self.assertEqual(response.data, serialized.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -51,7 +51,7 @@ class GetAllDataTest(BaseViewTest):
         """
         # hit the API endpoint
         response = self.client.get(
-            reverse("userprofiles-all", kwargs={"version": "v1"})
+            reverse("userprofiles-all")
         )
         # fetch the data from db
         expected = UserProfile.objects.all()
@@ -66,7 +66,7 @@ class GetAllDataTest(BaseViewTest):
         """
         # hit the API endpoint
         response = self.client.get(
-            reverse("startup-all", kwargs={"version": "v1"})
+            reverse("startup-all")
         )
         # fetch the data from db
         expected = Startup.objects.all()

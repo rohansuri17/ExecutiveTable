@@ -60,7 +60,7 @@ class ListStartupView(APIView):
         startups = Startup.objects.all()
         # the many param informs the serializer that it will be serializing more than a single article.
         serializer_class = StartupSerializer(startups,many=True)
-        return Response({"Startup": serializer_class.data})
+        return Response(serializer_class.data)
     
     def post(self, request):
 
