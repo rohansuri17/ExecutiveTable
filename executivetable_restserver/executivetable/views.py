@@ -2,10 +2,6 @@ from rest_framework import generics
 from rest_framework.response import Response
 from .models import *
 from rest_framework import status
-#from .models import StartupRoles
-
-from django.http.response import JsonResponse
-from rest_framework.parsers import JSONParser
 from .serializers import UsersSerializer
 from .serializers import UserProfileSerializer
 from .serializers import StartupSerializer
@@ -19,29 +15,11 @@ from .serializers import MessageBoardSerializer
 from .serializers import InfoUsersSerializer
 #from .serializers import StartupRolesSerializer
 from rest_framework.views import APIView
-from rest_framework.decorators import api_view
-from django.views.decorators.csrf import csrf_exempt
+from rest_framework import viewsets
 
-@csrf_exempt
-@api_view(['GET', 'POST', 'DELETE'])
-def infousers_list(request):
-    if request.method == 'GET':
-        users = InfoUsers.objects.all()
-        serializer = InfoUsersSerializer(users, many=True)
-        return Response(serializer.data)
-        # 'safe=False' for objects serialization
- 
-    elif request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = InfoUsersSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=status.HTTP_201_CREATED) 
-        return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
-    elif request.method == 'DELETE':
-        count = InfoUsers.objects.all().delete()
-        return JsonResponse({'message': '{} Users were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
+class InfoUsersView(viewsets.ModelViewSet):
+    serializer_class = InfoUsersSerializer
+    queryset = InfoUsers.objects.all()
  
 
 class ListUsersView(generics.ListAPIView):

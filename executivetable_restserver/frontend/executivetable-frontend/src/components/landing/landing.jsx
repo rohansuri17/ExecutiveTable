@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from 'react';
 import '../../stylesheets/components/landing.scss';
+import axios from "axios";
 class Landing extends React.Component {
   constructor(props) {
     super(props);
@@ -8,19 +9,42 @@ class Landing extends React.Component {
       lastName: "",
       email: "",
     };
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
+
 
   handleSubmit(e) {
     e.preventDefault();
-    // const user = Object.assign({}, this.state);
+    const data = {"first_name": this.state.firstName, "last_name": this.state.lastName, "email": this.state.email};
+    console.log('submit');
+    console.log(data);
+    fetch('http://127.0.0.1:8000/executivetable_restserver/executivetable/user/', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(res => res.json())
+      .then(res => console.log(res));
   }
+  /*
+  handleSubmit(e) {
+      console.log(this.state)
+      const user = Object.assign([{}], this.state);
+      e.preventDefault();
+      console.log("HELLO THERE")
+      this.createNewUser(user)
+      // const user = Object.assign({}, this.state);
+    }
+  */
 
-  update(field) {
-    return (e) =>
-      this.setState({
-        [field]: e.currentTarget.value,
-      });
-  }
+    update(field) {
+      return (e) =>
+        this.setState({
+          [field]: e.currentTarget.value,
+        });
+    }
 
   render() {
     return (
@@ -61,7 +85,7 @@ class Landing extends React.Component {
                 onChange={this.update("email")}
                 placeholder={"Email Address"}
               />
-              <button type="submit">Send</button>
+              <button onClick = {this.handleSubmit} type="submit">Send</button>
             </form>
           </div>
           <div className="container">

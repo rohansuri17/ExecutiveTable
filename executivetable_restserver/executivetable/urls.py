@@ -11,13 +11,18 @@ from .views import ListConnectionView
 from .views import ListPrivateMessageView
 from .views import ListMessageBoardView
 #from .views import ListInfoUsersView
-from .views import infousers_list
+from .views import InfoUsersView
+
+from executivetable import views 
 #from .views import ListStartupRolesView
+from rest_framework import routers 
+
+router = routers.DefaultRouter()                      # add this
+router.register(r'user', views.InfoUsersView, 'userinformation')
 
 urlpatterns = [
-    
+    path('executivetable/', include(router.urls)),
     path('executivetable/user', ListUsersView.as_view(), name="users-all"),
-    path('executivetable/userinformation', infousers_list, name="usersinfo"),
     path('executivetable/userprofiles-all', ListUserProfileView.as_view(), name="userprofiles-all"),
     path('executivetable/', ListStartupView.as_view(), name="startup-all"),
     path('executivetable/', ListStartupProfileView.as_view(), name="startupprofile-all"),
