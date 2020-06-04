@@ -12,7 +12,7 @@ Next, you want to create a virtual environment in the current directory. Virtual
 
   'virutualenv venv -p python3' 
 
-  'source/bin/activate'
+  'source venv/bin/activate'
 
 After you are done your directory should appear like this: '(venv) Rohans-MBP:executivetable_restserver rohansuri17$'
 
