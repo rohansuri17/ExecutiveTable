@@ -1,6 +1,6 @@
 from django.db import models
 from django import forms
-
+from django.contrib.auth.models import User
 #models
 class InfoUsers(models.Model):
     first_name = models.CharField(max_length=255)
@@ -27,7 +27,7 @@ class StartupProfile(models.Model):
         return self.description
 
 
-
+'''
 class User(models.Model):
 
     first_name = models.CharField(max_length = 45, default ="")
@@ -42,7 +42,7 @@ class User(models.Model):
 
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name) 
-
+'''
 
 class UserProfile(models.Model):
 

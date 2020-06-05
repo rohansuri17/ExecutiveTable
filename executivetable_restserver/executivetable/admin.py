@@ -5,7 +5,7 @@ from .models import *
 admin.site.register(Startup)
 admin.site.register(StartupProfile)
 admin.site.register(StartupRole)
-admin.site.register(User)
+#admin.site.register(User)
 admin.site.register(UserProfile)
 admin.site.register(Education)
 admin.site.register(WorkExperience)
