@@ -74,22 +74,9 @@ class ListUserProfileView(generics.ListAPIView):
     queryset = UserProfile.objects.all()
     serializer_class = UserSerializer
 
-class ListStartupView(APIView):
-    def get(self, request):
-        startups = Startup.objects.all()
-        # the many param informs the serializer that it will be serializing more than a single article.
-        serializer_class = StartupSerializer(startups,many=True)
-        return Response(serializer_class.data)
-    
-    def post(self, request):
-
-        Startup = request.data.get('Startup')
-
-        # Create an article from the above data
-        serializer = StartupSerializer(data=Startup)
-        if serializer.is_valid(raise_exception=True):
-            startup_saved = serializer.save()
-        return Response({"success": "Startup '{}' created successfully".format(startup_saved.name)})
+class ListStartupView(generics.ListAPIView):
+    queryset = Startup.objects.all()
+    serializer_class = UserSerializer
     
 class ListStartupProfileView(generics.ListAPIView):
     """
@@ -103,7 +90,7 @@ class ListStartupRoleView(generics.ListAPIView):
     Provides a get method handler.
     """
     queryset = Startup.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = StartupSerializer
 
 class ListEducationView(generics.ListAPIView):
     """

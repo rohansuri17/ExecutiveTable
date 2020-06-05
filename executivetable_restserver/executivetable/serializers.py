@@ -57,7 +57,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
 class StartupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Startup
-        fields = '__all__'
+        fields = ("Startup name")
 
 class StartupProfileSerializer(serializers.ModelSerializer):
     class Meta:
