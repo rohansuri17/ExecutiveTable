@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import Nav from './Nav';
-import LoginForm from './LoginForm';
-import SignupForm from './SignupForm';
+import Nav from '../Nav';
+import LoginForm from '../LoginForm';
+import SignupForm from '../SignupForm';
 import { Button, Navbar, NavDropdown, Form, FormControl} from 'react-bootstrap';
-import './App.css';
 import { Switch, Route } from 'react-router-dom';
-import Landing from './landing/landing.jsx';
-import Navigation from './Navigation'
+import Landing from '../landing/landing.jsx';
+import Navigation from '../Navigation'
 import './Login.css';
 class Login extends React.Component {
     constructor(props) {

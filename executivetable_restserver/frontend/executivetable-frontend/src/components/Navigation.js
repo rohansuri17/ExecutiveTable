@@ -16,7 +16,7 @@ export class Navigation extends Component{
                 Home
                 </NavLink>
                 <NavLink className="d-inline p-2 bg-dark text-white"
-                to= '/' >
+                to= './Signup' >
                 Sign up
                 </NavLink>
                 <NavLink className="d-inline p-2 bg-dark text-white"

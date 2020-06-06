@@ -8,7 +8,8 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import Landing from './landing/landing.jsx';
 import Navigation from './Navigation'
 import '../stylesheets/base/reset.scss';
-import Login from './Login'
+import Login from './Login/Login'
+import Signup from './Signup/Signup'
 
 /*
 class App extends Component {
@@ -218,7 +219,7 @@ class App extends React.Component {
 
   render() {
     console.log(this.state.username)
-    let form;
+    /*let form;
     switch (this.state.displayed_form) {
       case 'login':
         form = <LoginForm handle_login={this.handle_login} />;
@@ -229,6 +230,7 @@ class App extends React.Component {
       default:
         form = null;
   }
+  */
     return (
       <div className="App">
         <BrowserRouter>
@@ -246,7 +248,8 @@ class App extends React.Component {
         </h3> */}
         <Switch>
           <Route path="/" component={Landing} exact/>
-          <Route path="/" component={Login} />
+          <Route path="/Login" component={Login} />
+          <Route path="/Signup" component={Signup} />
         </Switch>
         </BrowserRouter>
       </div>
