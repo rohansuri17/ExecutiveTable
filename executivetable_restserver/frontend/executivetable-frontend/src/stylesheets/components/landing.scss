@@ -3,23 +3,29 @@
 div.landing-outer__container {
   div.landing-header__outer-container {
     background-color: #333333;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23264add'/%3E%3Cstop offset='1' stop-color='%23333333'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%2330c4ff' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%2330c4ff' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("/boardroom-background.png");
     background-size: cover;
     position: relative;
 
     height: 600px; /* TEST */
-    background-position-y: 600px;
+    background-position: center;
 
-    > h1 {
+    .landing-header__title-container {
       font-family: $Varela;
       color: white;
       font-size: 1.8rem;
       padding: 1.5rem 8vw;
+      display: flex;
+      align-items: center;
+      text-shadow: 1px 1px 3px black;
+
+      img {
+        margin-right: 1rem;
+      }
     }
 
     div.landing-header__text-form__container {
       display: flex;
-      justify-content: space-between;
       padding: 3vh 8vw;
       align-items: center;
 
@@ -28,6 +34,11 @@ div.landing-outer__container {
         font-family: $Cabin;
         width: 42%;
         z-index: 1;
+        text-shadow: 1px 1px 3px black;
+        order: 1;
+        padding-left: 18vw;
+        font-weight: 700;
+        padding-bottom: 3rem;
 
         h1 {
           font-size: 2.5rem;
@@ -41,7 +52,7 @@ div.landing-outer__container {
 
         p {
           font-size: 1.2rem;
-          color: #99a3e8;
+          color: #9aa8e2;
         }
       }
 
@@ -60,7 +71,7 @@ div.landing-outer__container {
 
         div.landing-header__form-top-border-line {
           height: 4px;
-          background: #70d5e6;
+          background: #8bccef;
         }
 
         h1 {
@@ -100,7 +111,7 @@ div.landing-outer__container {
         }
 
         button {
-          background-color: #706ad4;
+          background-color: #5d6eb5;
           width: 68%;
           margin-left: auto;
           margin-right: auto;
@@ -114,7 +125,7 @@ div.landing-outer__container {
         }
 
         button:hover {
-          background-color: #807ae6;
+          background-color: #8e9bd2;
         }
       }
     }
