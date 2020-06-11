@@ -10,6 +10,7 @@ import Navigation from './Navigation'
 import '../stylesheets/base/reset.scss';
 import Login from './Login/Login'
 import Signup from './Signup/Signup'
+import Plan from './Plan/Plan';
 
 /*
 class App extends Component {
@@ -239,6 +240,7 @@ class App extends React.Component {
             <Route path="/" component={Landing} exact/>
             <Route path="/Login" component={Login} />
             <Route path="/Signup" component={Signup} />
+            <Route path="/Plan" component={Plan} />
           </Switch>
         </BrowserRouter>
       </div>
