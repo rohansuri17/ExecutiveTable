@@ -4,7 +4,43 @@
   z-index: 1;
   font-family: $Varela;
 
-  img {
-    margin: 0 20px;
+  #basic-navbar-nav {
+    justify-content: space-between;
+  }
+
+  .navigation-logo__container {
+    display: flex;
+    align-items: center;
+
+    img {
+      margin: 0 20px;
+    }
+  
+    h1 {
+      font-size: 1.4rem;
+      color: white;
+    }
+  }
+
+  .navbar-nav {
+    width: 30%;
+    justify-content: space-between;
+  }
+
+  .navigation-login-signup__container {
+    a {
+      border: 1px solid #687ab7;
+      text-decoration: none;
+      color: white;
+      padding: 0.2rem 1.4rem;
+      margin: 0 1rem;
+      border-radius: 3px;
+      background-color: #687ab7;
+      transition: background-color 0.2s;
+    }
+
+    a:hover {
+      background-color: #8b9cd3;
+    }
   }
 }
