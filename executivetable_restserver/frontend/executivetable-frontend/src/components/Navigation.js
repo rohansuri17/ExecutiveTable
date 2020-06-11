@@ -9,6 +9,7 @@ export class Navigation extends Component{
     {
         return(
             <Navbar dark="true" className="bg-dark">
+                <img height="40" src={process.env.PUBLIC_URL + "/the-executive-table-logo.png"}></img>
             <Navbar.Toggle aria-controls = "basic-navbar-nav"/>
             <Navbar.Collapse id = "basic-navbar-nav">
             <Nav>
