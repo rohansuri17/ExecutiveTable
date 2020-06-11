@@ -3,6 +3,7 @@ import {NavLink, BrowserRouter} from 'react-router-dom';
 import {Navbar, Nav} from 'react-bootstrap';
 import Landing from './landing/landing.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../stylesheets/components/navigation.scss';
 export class Navigation extends Component{
     render()
     {

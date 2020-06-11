@@ -234,73 +234,16 @@ class App extends React.Component {
     return (
       <div className="App">
         <BrowserRouter>
-        <Navigation/>
-         {/* <Nav
-          logged_in={this.state.logged_in}
-          display_form={this.display_form}
-          handle_logout={this.handle_logout}
-        />
-        {form}
-        <h3>
-          {this.state.logged_in
-            ? `Hello, ${this.state.username}`
-            : 'Please Log In'}
-        </h3> */}
-        <Switch>
-          <Route path="/" component={Landing} exact/>
-          <Route path="/Login" component={Login} />
-          <Route path="/Signup" component={Signup} />
-        </Switch>
+          <Navigation/>
+          <Switch>
+            <Route path="/" component={Landing} exact/>
+            <Route path="/Login" component={Login} />
+            <Route path="/Signup" component={Signup} />
+          </Switch>
         </BrowserRouter>
       </div>
-      /*<div>
-        <Switch>
-          <Route path="/" component={Landing} />
-        </Switch>
-      </div>
-      */
     );
   }
 }
-
-// class App extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//     'users': []
-//     };
-//   }
-
-//   componentDidMount() {
-//     this.getItems();
-//   }
-
-//   getItems()
-//   {
-//     fetch("http://127.0.0.1:8000/executivetable_restserver/executivetable/user")
-//       .then(results => results.json())
-//       .then(results => this.setState({'users' :results}));
-//   }
-
-//   render() {
-//     return(
-//       <ul>
-//         {this.state.users.map(function(user, index)
-//           {
-
-//             return (
-//             <div>
-//             <h1>{user.first_name + " " + user.last_name}</h1>
-//             <p>{user.email}</p>
-//             </div>
-//             )
-
-//           }
-//           )}
-//       </ul>
-//       )
-//   }
-// }
-
 
 export default App;

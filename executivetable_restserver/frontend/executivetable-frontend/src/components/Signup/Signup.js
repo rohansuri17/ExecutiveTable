@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../Nav';
 import SignupForm from '../SignupForm';
 import LoginForm from '../LoginForm';
-import './Signup.css'
+import '../../stylesheets/components/signup.scss';
 
 class Signup extends Component {
   constructor(props) {
