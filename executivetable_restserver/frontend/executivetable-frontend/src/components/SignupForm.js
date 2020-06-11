@@ -42,7 +42,7 @@ class SignupForm extends React.Component {
           onChange={this.handle_change}
           placeholder="Your Password"
         />
-        <input type="submit" value="Next"/>
+        <input type="submit" value="Next" onClick={(event) => {event.preventDefault(); return this.props.history.push("/Plan")}}/>
       </form>
     );
   }

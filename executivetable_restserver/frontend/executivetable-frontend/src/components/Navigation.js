@@ -29,8 +29,8 @@ export class Navigation extends Component{
                 </NavLink>
             </Nav>
             <div className="navigation-login-signup__container">
-                <Link to="/signup">Sign Up</Link>
-                <Link to="/signup">Sign In</Link>
+                <Link to="/Signup">Sign Up</Link>
+                <Link to="/Login">Sign In</Link>
             </div>
             </Navbar.Collapse>
                 
