@@ -19,22 +19,22 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-
       <form onSubmit={e => this.props.handle_login(e, this.state)}>
         <h4>Log In</h4>
-        <label htmlFor="username">Username</label>
         <input className="test"
           type="text"
           name="username"
           value={this.state.username}
           onChange={this.handle_change}
+          placeholder="Username"
         />
-        <label htmlFor="password">Password</label>
         <input
           type="password"
           name="password"
           value={this.state.password}
           onChange={this.handle_change}
+          placeholder="Password"
+          autoComplete="on"
         />
         <input type="submit" />
       </form>

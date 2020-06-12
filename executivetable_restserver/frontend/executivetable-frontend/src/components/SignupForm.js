@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 class SignupForm extends React.Component {
   state = {
     username: '',
-    password: ''
+    password: '',
+    email: '',
   };
 
   handle_change = e => {
@@ -41,8 +42,9 @@ class SignupForm extends React.Component {
           value={this.state.password}
           onChange={this.handle_change}
           placeholder="Your Password"
+          autoComplete="on"
         />
-        <input type="submit" value="Next" onClick={(event) => {event.preventDefault(); return this.props.history.push("/Plan")}}/>
+        <input type="submit" value="Next" />
       </form>
     );
   }

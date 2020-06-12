@@ -11,7 +11,7 @@ export class Navigation extends Component{
             <Navbar.Toggle aria-controls = "basic-navbar-nav"/>
             <Navbar.Collapse id = "basic-navbar-nav">
             <div className="navigation-logo__container">
-                <img height="40" src={process.env.PUBLIC_URL + "/the-executive-table-logo.png"}></img>
+                <img height="40" src={process.env.PUBLIC_URL + "/the-executive-table-logo.png"} alt="logo"></img>
                 <h1>The Executive Table</h1>
             </div>
             <Nav>

@@ -1,8 +1,5 @@
-import React, { Component } from 'react';
-import Nav from './Nav';
-import LoginForm from './LoginForm';
-import SignupForm from './SignupForm';
-import { Button, Navbar, NavDropdown, Form, FormControl} from 'react-bootstrap';
+import React from 'react';
+// import { Button, Navbar, NavDropdown, Form, FormControl} from 'react-bootstrap';
 import './App.css';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import Landing from './landing/landing.jsx';
@@ -219,19 +216,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.username)
-    /*let form;
-    switch (this.state.displayed_form) {
-      case 'login':
-        form = <LoginForm handle_login={this.handle_login} />;
-        break;
-      case 'signup':
-        form = <SignupForm handle_signup={this.handle_signup} />;
-        break;
-      default:
-        form = null;
-  }
-  */
     return (
       <div className="App">
         <BrowserRouter>

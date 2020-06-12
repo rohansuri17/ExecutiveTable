@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Nav from '../Nav';
 import SignupForm from '../SignupForm';
-import LoginForm from '../LoginForm';
 import '../../stylesheets/components/signup.scss';
 
 class Signup extends Component {
@@ -59,6 +57,7 @@ class Signup extends Component {
 
   handle_signup = (e, data) => {
     //this.state.username = "Logging in"
+    console.log(data);
     e.preventDefault();
     fetch('http://127.0.0.1:8000/executivetable_restserver/register', {
       method: 'POST',
@@ -70,11 +69,8 @@ class Signup extends Component {
       .then(res => res.json())
       .then(res => {
         localStorage.setItem('token', res.token);
-        this.setState({
-          logged_in: true,
-          displayed_form: '',
-          username: res.username
-        });
+        localStorage.setItem('currentUser', res.user.username);
+        this.props.history.push('/Plan');
       });
   };
 
@@ -95,7 +91,7 @@ class Signup extends Component {
     
     return (
       <div className="Signup">
-        <img src="https://images.unsplash.com/photo-1527259216948-b0c66d6fc31f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"></img>
+        <img src="https://images.unsplash.com/photo-1527259216948-b0c66d6fc31f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="conference-room"></img>
         {form}
       </div>
     );
