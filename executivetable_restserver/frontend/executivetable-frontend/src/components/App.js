@@ -1,8 +1,5 @@
-import React, { Component } from 'react';
-import Nav from './Nav';
-import LoginForm from './LoginForm';
-import SignupForm from './SignupForm';
-import { Button, Navbar, NavDropdown, Form, FormControl} from 'react-bootstrap';
+import React from 'react';
+// import { Button, Navbar, NavDropdown, Form, FormControl} from 'react-bootstrap';
 import './App.css';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import Landing from './landing/landing.jsx';
@@ -10,6 +7,7 @@ import Navigation from './Navigation'
 import '../stylesheets/base/reset.scss';
 import Login from './Login/Login'
 import Signup from './Signup/Signup'
+import Plan from './Plan/Plan';
 
 /*
 class App extends Component {
@@ -218,89 +216,20 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.username)
-    /*let form;
-    switch (this.state.displayed_form) {
-      case 'login':
-        form = <LoginForm handle_login={this.handle_login} />;
-        break;
-      case 'signup':
-        form = <SignupForm handle_signup={this.handle_signup} />;
-        break;
-      default:
-        form = null;
-  }
-  */
     return (
       <div className="App">
         <BrowserRouter>
-        <Navigation/>
-         {/* <Nav
-          logged_in={this.state.logged_in}
-          display_form={this.display_form}
-          handle_logout={this.handle_logout}
-        />
-        {form}
-        <h3>
-          {this.state.logged_in
-            ? `Hello, ${this.state.username}`
-            : 'Please Log In'}
-        </h3> */}
-        <Switch>
-          <Route path="/" component={Landing} exact/>
-          <Route path="/Login" component={Login} />
-          <Route path="/Signup" component={Signup} />
-        </Switch>
+          <Navigation/>
+          <Switch>
+            <Route path="/" component={Landing} exact/>
+            <Route path="/Login" component={Login} />
+            <Route path="/Signup" component={Signup} />
+            <Route path="/Plan" component={Plan} />
+          </Switch>
         </BrowserRouter>
       </div>
-      /*<div>
-        <Switch>
-          <Route path="/" component={Landing} />
-        </Switch>
-      </div>
-      */
     );
   }
 }
-
-// class App extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//     'users': []
-//     };
-//   }
-
-//   componentDidMount() {
-//     this.getItems();
-//   }
-
-//   getItems()
-//   {
-//     fetch("http://127.0.0.1:8000/executivetable_restserver/executivetable/user")
-//       .then(results => results.json())
-//       .then(results => this.setState({'users' :results}));
-//   }
-
-//   render() {
-//     return(
-//       <ul>
-//         {this.state.users.map(function(user, index)
-//           {
-
-//             return (
-//             <div>
-//             <h1>{user.first_name + " " + user.last_name}</h1>
-//             <p>{user.email}</p>
-//             </div>
-//             )
-
-//           }
-//           )}
-//       </ul>
-//       )
-//   }
-// }
-
 
 export default App;

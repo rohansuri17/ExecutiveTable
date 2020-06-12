@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import '../../stylesheets/components/landing.scss';
-import axios from "axios";
+
 class Landing extends React.Component {
   constructor(props) {
     super(props);
@@ -28,29 +28,26 @@ class Landing extends React.Component {
       .then(res => res.json())
       .then(res => console.log(res));
   }
-  /*
-  handleSubmit(e) {
-      console.log(this.state)
-      const user = Object.assign([{}], this.state);
-      e.preventDefault();
-      console.log("HELLO THERE")
-      this.createNewUser(user)
-      // const user = Object.assign({}, this.state);
-    }
-  */
 
-    update(field) {
-      return (e) =>
-        this.setState({
-          [field]: e.currentTarget.value,
-        });
-    }
+  update(field) {
+    return (e) =>
+      this.setState({
+        [field]: e.currentTarget.value,
+      });
+  }
 
   render() {
     return (
       <div className="landing-outer__container">
         <div className="landing-header__outer-container">
-          <h1>The Executive Table</h1>
+          <div className="landing-header__title-container">
+            <img
+              height="55"
+              src={process.env.PUBLIC_URL + "/the-executive-table-logo.png"}
+              alt="logo"
+            />
+            <h1>The Executive Table</h1>
+          </div>
           <div className="landing-header__text-form__container">
             <div className="landing-header__text-container">
               <h1>
@@ -111,7 +108,10 @@ class Landing extends React.Component {
 
           <div className="landing-info__outer-box-container">
             <div className="landing-info__box-container">
-              <img src="https://img.icons8.com/fluent/48/000000/link.png" alt="linked-chain" />
+              <img
+                src="https://img.icons8.com/fluent/48/000000/link.png"
+                alt="linked-chain"
+              />
               <h5>Sit amet porttitor consectetur</h5>
               <p>
                 Gravida in fermentum et sollicitudin ac orci phasellus egestas
@@ -119,7 +119,10 @@ class Landing extends React.Component {
               </p>
             </div>
             <div className="landing-info__box-container">
-              <img src="https://img.icons8.com/cute-clipart/64/000000/globe.png" alt="globe" />
+              <img
+                src="https://img.icons8.com/cute-clipart/64/000000/globe.png"
+                alt="globe"
+              />
               <h5>Proin libero</h5>
               <p>
                 At urna condimentum mattis pellentesque id nibh, tortor id
@@ -127,7 +130,10 @@ class Landing extends React.Component {
               </p>
             </div>
             <div className="landing-info__box-container">
-              <img src="https://img.icons8.com/cotton/64/000000/business-group.png" alt="group-of-people" />
+              <img
+                src="https://img.icons8.com/cotton/64/000000/business-group.png"
+                alt="group-of-people"
+              />
               <h5>Scelerisque integer nunc</h5>
               <p>
                 Blandit aliquam etiam erat velit scelerisque in dictum non

@@ -1,45 +1,19 @@
-import React, { Component } from 'react';
-import Nav from '../Nav';
+import React from 'react';
 import LoginForm from '../LoginForm';
-import SignupForm from '../SignupForm';
-import { Button, Navbar, NavDropdown, Form, FormControl} from 'react-bootstrap';
-import { Switch, Route } from 'react-router-dom';
-import Landing from '../landing/landing.jsx';
-import Navigation from '../Navigation'
-import './Login.css';
+// import { Button, Navbar, NavDropdown, Form, FormControl} from 'react-bootstrap';
+import '../../stylesheets/components/login.scss';
 class Login extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
         displayed_form: '',
         logged_in: localStorage.getItem('token') ? true : false,
-        username: ''
+        username: localStorage.getItem('currentUser') ? localStorage.getItem('currentUser') : '',
       };
-      //this.handle_signup = this.handle_signup.bind(this)
       this.handle_login = this.handle_login.bind(this)
-    }
-    async componentDidUpdate(prevProps,prevState) {
-      if (this.state.logged_in) {
-        if (this.state.username !== prevState.username) {
-          //this.fetchData(this.state.username);
-        const response = await fetch('http://127.0.0.1:8000/executivetable_restserver/user', {
-          headers: {
-            Authorization: `Token ${localStorage.getItem('token')}`
-          }
-        })
-        const res = await response.json()
-          //.then(res => res.json())
-          //.then(res => {
-          this.setState({ username: res.username});
-          //});
-          //debugger
-        }
-      }
-  
     }
   
     handle_login = (e, data) => {
-      //this.state.username = "Logging in"
       e.preventDefault();
       fetch('http://127.0.0.1:8000/executivetable_restserver/login', {
         method: 'POST',
@@ -54,32 +28,10 @@ class Login extends React.Component {
           this.setState({
             logged_in: true,
             displayed_form: '',
-            username: res.username
+            username: res.user.username
           });
         });
     };
-    /*
-    handle_signup = (e, data) => {
-      //this.state.username = "Logging in"
-      e.preventDefault();
-      fetch('http://127.0.0.1:8000/executivetable_restserver/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-        .then(res => res.json())
-        .then(res => {
-          localStorage.setItem('token', res.token);
-          this.setState({
-            logged_in: true,
-            displayed_form: '',
-            username: res.username
-          });
-        });
-    };
-    */
     
     handle_logout = () => {
       localStorage.removeItem('token');
@@ -93,18 +45,13 @@ class Login extends React.Component {
     };
 
     render() {
-        console.log(this.state.username)
         let form;
         form = <LoginForm handle_login={this.handle_login} />;
         
-      
-          return (
-            <div className="Login">
-              {/* <Nav
-                logged_in={this.state.logged_in}
-                display_form={this.display_form}
-                handle_logout={this.handle_logout}
-              /> */}
+        return (
+          <div className="Login">
+            <img src="https://images.unsplash.com/photo-1527259216948-b0c66d6fc31f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="conference-room"></img>
+            <div className="Login-form__text-wrapper">
               {form}
               <h3>
                 {this.state.logged_in
@@ -112,8 +59,8 @@ class Login extends React.Component {
                   : 'Please Log In'}
               </h3>
             </div>
-            
-          );
-        }
+          </div>
+        );
+    }
 } 
 export default Login;
