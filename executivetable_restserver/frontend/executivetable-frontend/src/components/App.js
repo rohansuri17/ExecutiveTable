@@ -8,6 +8,10 @@ import '../stylesheets/base/reset.scss';
 import Login from './Login/Login'
 import Signup from './Signup/Signup'
 import Plan from './Plan/Plan';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
+import Profile from './Profile/Profile'
+import Logout from './Logout/Logout'
 
 /*
 class App extends Component {
@@ -30,10 +34,7 @@ class App extends Component {
           headers: {
             Authorization: `Token ${localStorage.getItem('token')}`
           }
-        })
-        const res = await response.json()
-          //.then(res => res.json())
-          //.then(res => {
+        })localStorage.getItem('currentUser')
           this.setState({ username: res.username});
           //});
           //debugger
@@ -221,10 +222,12 @@ class App extends React.Component {
         <BrowserRouter>
           <Navigation/>
           <Switch>
-            <Route path="/" component={Landing} exact/>
-            <Route path="/Login" component={Login} />
+            <PublicRoute restricted = {false} path="/" component={Landing} exact/>
+            <PublicRoute restricted = {true} path="/Login" component={Login} />
+            <PrivateRoute path = "/profile" component = {Profile} />
             <Route path="/Signup" component={Signup} />
             <Route path="/Plan" component={Plan} />
+            <Route path="/Logout" component={Logout} />
           </Switch>
         </BrowserRouter>
       </div>

@@ -27,6 +27,14 @@ export class Navigation extends Component{
                 to= './Login' >
                 Login
                 </NavLink>
+                <NavLink className="d-inline p-2 bg-dark text-white"
+                to= './Profile' >
+                Profile
+                </NavLink>
+                <NavLink className="d-inline p-2 bg-dark text-white"
+                to= './Logout' >
+                Logout
+                </NavLink>
             </Nav>
             <div className="navigation-login-signup__container">
                 <Link to="/Signup">Sign Up</Link>
