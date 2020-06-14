@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -143,5 +144,10 @@ STATIC_URL = '/static/'
 
 CORS_ORIGIN_ALLOW_ALL = True # added to solve CORS
 
-# Debugging to see where base dir points
-print("base dir path", BASE_DIR)
+# Point this path to the frontend folder
+STATIC_PRODUCTION_DIR = os.path.abspath(os.path.join(
+os.path.dirname(__file__), '..', '..', 'frontend', 'executivetable-frontend'))
+
+django_heroku.settings(locals())
+STATIC_ROOT = os.path.join(BASE_DIR, 'build', 'static')
+STATICFILES_DIRS = []
