@@ -16,6 +16,10 @@ import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Point this path to the frontend folder
+STATIC_PRODUCTION_DIR = os.path.abspath(os.path.join(
+os.path.dirname(__file__), '..', '..', 'executivetable_restserver', 'frontend', 'executivetable-frontend'))
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -23,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '__0bb*&71ui_jak_a1mz_mib3&e=(lni651j-ej*pe&@1nuda='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -36,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'rest_framework',
     'executivetable',
@@ -65,6 +70,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 
@@ -73,7 +80,7 @@ ROOT_URLCONF = 'executivetable_restserver.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(STATIC_PRODUCTION_DIR, 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -136,18 +143,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+django_heroku.settings(locals())
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
 STATIC_URL = '/static/'
 
 CORS_ORIGIN_ALLOW_ALL = True # added to solve CORS
 
-# Point this path to the frontend folder
-STATIC_PRODUCTION_DIR = os.path.abspath(os.path.join(
-os.path.dirname(__file__), '..', '..', 'frontend', 'executivetable-frontend'))
-
-django_heroku.settings(locals())
-STATIC_ROOT = os.path.join(BASE_DIR, 'build', 'static')
-STATICFILES_DIRS = []
+STATIC_ROOT = os.path.join(STATIC_PRODUCTION_DIR, 'build', 'static')
+STATICFILES_DIRS = [os.path.join(STATIC_PRODUCTION_DIR, 'build')]

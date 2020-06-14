@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../stylesheets/components/landing.scss';
 
+import logo from '../../images/the-executive-table-logo.png';
+
 class Landing extends React.Component {
   constructor(props) {
     super(props);
@@ -43,7 +45,7 @@ class Landing extends React.Component {
           <div className="landing-header__title-container">
             <img
               height="55"
-              src={process.env.PUBLIC_URL + "/the-executive-table-logo.png"}
+              src={logo}
               alt="logo"
             />
             <h1>The Executive Table</h1>
