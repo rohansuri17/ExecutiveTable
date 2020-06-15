@@ -108,7 +108,7 @@ WSGI_APPLICATION = 'executivetable_restserver.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': os.getenv('DATABASE_URL') or {
+    'default': os.getenv('DATABASE_URL') or { # Use Heroku database or local
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'executivetable',
     }
