@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "frontend-install": "npm install --prefix executivetable_restserver/frontend/executivetable-frontend",
+    "start": "react-scripts start --prefix executivetable_restserver/frontend/executivetable-frontend",
     "heroku-postbuild": "npm install --prefix executivetable_restserver/frontend/executivetable-frontend && npm run build --prefix executivetable_restserver/frontend/executivetable-frontend"
   }
 }
