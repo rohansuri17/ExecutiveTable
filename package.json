@@ -1,0 +1,9 @@
+{
+  "name": "executivetable",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "frontend-install": "npm install --prefix executivetable-frontend",
+    "heroku-postbuild": "npm install --prefix executivetable-frontend && npm run build --prefix executivetable-frontend"
+  }
+}
