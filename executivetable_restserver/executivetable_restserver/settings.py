@@ -27,7 +27,7 @@ os.path.dirname(__file__), '..', '..', 'executivetable_restserver', 'frontend', 
 SECRET_KEY = '__0bb*&71ui_jak_a1mz_mib3&e=(lni651j-ej*pe&@1nuda='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
