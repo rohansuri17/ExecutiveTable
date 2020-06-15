@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "frontend-install": "npm install --prefix executivetable-frontend",
-    "heroku-postbuild": "npm install --prefix executivetable-frontend && npm run build --prefix executivetable-frontend"
+    "frontend-install": "npm install --prefix executivetable_restserver/frontend/executivetable-frontend",
+    "heroku-postbuild": "npm install --prefix executivetable_restserver/frontend/executivetable-frontend && npm run build --prefix executivetable_restserver/frontend/executivetable-frontend"
   }
 }
