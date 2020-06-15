@@ -17,7 +17,7 @@ class Signup extends Component {
       if (this.state.logged_in) {
         if (this.state.username !== prevState.username) {
           //this.fetchData(this.state.username);
-        const response = await fetch('http://127.0.0.1:8000/executivetable_restserver/user', {
+        const response = await fetch('/executivetable_restserver/user', {
           headers: {
             Authorization: `Token ${localStorage.getItem('token')}`
           }

@@ -20,7 +20,7 @@ class Landing extends React.Component {
     const data = {"first_name": this.state.firstName, "last_name": this.state.lastName, "email": this.state.email};
     console.log('submit');
     console.log(data);
-    fetch('http://127.0.0.1:8000/executivetable_restserver/executivetable/user/', {
+    fetch('/executivetable_restserver/executivetable/user/', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
