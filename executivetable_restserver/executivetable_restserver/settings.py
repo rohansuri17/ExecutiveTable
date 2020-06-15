@@ -108,15 +108,10 @@ WSGI_APPLICATION = 'executivetable_restserver.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'executivetable',
-    #     #'USER': 'rohansuri17',
-    #     #'Password': '',
-    #     #'HOST': 'localhost',
-    #     #'PORT': '',
-    # }
-    'default': os.getenv('DATABASE_URL') or env('DATABASE_URL')
+    'default': os.getenv('DATABASE_URL') or {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'executivetable',
+    }
 }
 
 
