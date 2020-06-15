@@ -59,7 +59,7 @@ class Signup extends Component {
     //this.state.username = "Logging in"
     console.log(data);
     e.preventDefault();
-    fetch('http://127.0.0.1:8000/executivetable_restserver/register', {
+    fetch('/executivetable_restserver/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
