@@ -2,8 +2,8 @@ language: python
 python: 
   - 3.7.5
 env:
-  - SECRET_KEY = 'TEST'
-  - DEBUG = True
+  - SECRET_KEY=TEST
+  - DEBUG=True
 services:
   - postgresql
 install:
