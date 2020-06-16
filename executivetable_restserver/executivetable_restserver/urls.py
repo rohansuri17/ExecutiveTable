@@ -17,8 +17,8 @@ from django.contrib import admin
 from django.urls import re_path, path, include 
 
 urlpatterns = [
-     path('admin', admin.site.urls),
-    #path('',include('executivetable_restserver.urls'))
+    path('admin', admin.site.urls),
+    # path('',include('executivetable_restserver.urls'))
     re_path('executivetable_restserver/', include('executivetable.urls')),
     path('', include('frontend.urls')),
 ]

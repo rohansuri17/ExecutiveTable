@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../stylesheets/components/landing.scss';
 
+import logo from '../../images/the-executive-table-logo.png';
+
 class Landing extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,7 @@ class Landing extends React.Component {
     const data = {"first_name": this.state.firstName, "last_name": this.state.lastName, "email": this.state.email};
     console.log('submit');
     console.log(data);
-    fetch('http://127.0.0.1:8000/executivetable_restserver/executivetable/user/', {
+    fetch('/executivetable_restserver/executivetable/user/', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -43,7 +45,7 @@ class Landing extends React.Component {
           <div className="landing-header__title-container">
             <img
               height="55"
-              src={process.env.PUBLIC_URL + "/the-executive-table-logo.png"}
+              src={logo}
               alt="logo"
             />
             <h1>The Executive Table</h1>

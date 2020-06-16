@@ -147,7 +147,7 @@ class App extends React.Component {
     if (this.state.logged_in) {
       if (this.state.username !== prevState.username) {
         //this.fetchData(this.state.username);
-      const response = await fetch('http://127.0.0.1:8000/executivetable_restserver/user', {
+      const response = await fetch('/executivetable_restserver/user', {
         headers: {
           Authorization: `Token ${localStorage.getItem('token')}`
         }
@@ -166,7 +166,7 @@ class App extends React.Component {
   handle_login = (e, data) => {
     //this.state.username = "Logging in"
     e.preventDefault();
-    fetch('http://127.0.0.1:8000/executivetable_restserver/login', {
+    fetch('/executivetable_restserver/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -187,7 +187,7 @@ class App extends React.Component {
   handle_signup = (e, data) => {
     //this.state.username = "Logging in"
     e.preventDefault();
-    fetch('http://127.0.0.1:8000/executivetable_restserver/register', {
+    fetch('/executivetable_restserver/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

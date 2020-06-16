@@ -11,19 +11,31 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
+import environ
+
+root = environ.Path(__file__) - 3  # get root of the project
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+environ.Env.read_env()  # reading .env file
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Point this path to the frontend folder
+STATIC_PRODUCTION_DIR = os.path.abspath(os.path.join(
+os.path.dirname(__file__), '..', '..', 'executivetable_restserver', 'frontend', 'executivetable-frontend'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '__0bb*&71ui_jak_a1mz_mib3&e=(lni651j-ej*pe&@1nuda='
+SECRET_KEY = os.getenv('SECRET_KEY') or env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG') or env('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -36,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'rest_framework',
     'executivetable',
@@ -65,6 +78,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 
@@ -73,7 +88,7 @@ ROOT_URLCONF = 'executivetable_restserver.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(STATIC_PRODUCTION_DIR, 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -93,13 +108,9 @@ WSGI_APPLICATION = 'executivetable_restserver.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default': os.getenv('DATABASE_URL') or { # Use Heroku database or local
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'executivetable',
-        #'USER': 'rohansuri17',
-        #'Password': '',
-        #'HOST': 'localhost',
-        #'PORT': '',
     }
 }
 
@@ -136,10 +147,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+django_heroku.settings(locals())
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
 STATIC_URL = '/static/'
 
 CORS_ORIGIN_ALLOW_ALL = True # added to solve CORS
+
+STATIC_ROOT = os.path.join(STATIC_PRODUCTION_DIR, 'build', 'static')
+STATICFILES_DIRS = [os.path.join(STATIC_PRODUCTION_DIR, 'build')]

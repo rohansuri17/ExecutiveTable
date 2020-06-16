@@ -25,7 +25,7 @@ class Login extends React.Component {
   
     handle_login = (e, data) => {
       e.preventDefault();
-      fetch('http://127.0.0.1:8000/executivetable_restserver/login', {
+      fetch('/executivetable_restserver/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
